@@ -33,31 +33,6 @@
     
     
     <entry>
-      <title>测试文章</title>
-      <link href="/posts/4131.html"/>
-      <url>/posts/4131.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 测试分类 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 测试标签 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello World</title>
       <link href="/posts/16107.html"/>
       <url>/posts/16107.html</url>
