@@ -6,7 +6,7 @@
   <link href="https://miss698.com/atom.xml" rel="self"/>
   
   <link href="https://miss698.com/"/>
-  <updated>2023-02-01T07:34:42.149Z</updated>
+  <updated>2023-02-03T07:24:55.338Z</updated>
   <id>https://miss698.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在服务端配置跨域</title>
+    <link href="https://miss698.com/posts/1035.html"/>
+    <id>https://miss698.com/posts/1035.html</id>
+    <published>2023-02-03T07:08:57.000Z</published>
+    <updated>2023-02-03T07:24:55.338Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>📝 开发前后端分离项目时，两个项目是分别部署，一般情况下，当客户端向服务端发送请求时，浏览器会制止向另一个站点读取数据，此限制称为同域策略，因此需要在服务端项目中启用跨域请求（CORS）</p></blockquote><blockquote><p>✒ 当前开发环境：ASP.NET Core Web API 6.0</p></blockquote><hr><h2 id="添加跨域策略"><a href="#添加跨域策略" class="headerlink" title="添加跨域策略"></a>添加跨域策略</h2><p>只需要在 Program.cs 文件中添加一下跨域服务，如下</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只需要两句代码就可以简单配置</span></span><br><span class="line"><span class="comment">// AllowAnyOrigin(): 允许任何站点发出的跨域请求</span></span><br><span class="line"><span class="comment">// AllowAnyHeader(): 允许任何的请求头</span></span><br><span class="line"><span class="comment">// AllowAnyMethod(): 允许任何HTTP方法</span></span><br><span class="line">builder.Services.AddCors(options =&gt; options.AddPolicy(<span class="string">&quot;cors&quot;</span>,p =&gt; p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));</span><br><span class="line">app.UseCors(<span class="string">&quot;cors&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置AllowAnyOrigin后任何网站都可以向应用发出跨域请求，会使其不安全</span></span><br><span class="line"><span class="comment">// 所以可以手动添加站点，可以设置多个站点，逗号隔开</span></span><br><span class="line"><span class="comment">// 同时也可手动添加允许的请求头</span></span><br><span class="line">builder.Services.AddCors(options =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    options.AddPolicy(<span class="string">&quot;cors&quot;</span>, p =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        p.WithOrigins(<span class="string">&quot;http://example.com&quot;</span>)</span><br><span class="line">            .WithHeaders(HeaderNames.ContentType, <span class="string">&quot;x-custom-header&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">app.UseCors(<span class="string">&quot;cors&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>这就是跨域处理的基本操作，如果需要深入了解CORS，可以看<a href="https://learn.microsoft.com/zh-cn/aspnet/core/security/cors?view=aspnetcore-6.0">微软文档</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;📝 开发前后端分离项目时，两个项目是分别部署，一般情况下，当客户端向服务端发送请求时，浏览器会制止向另一个站点读取数据，此限制称为同域策略，因此需要在服务端项目中启用跨域请求（CORS）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote</summary>
+      
+    
+    
+    
+    <category term="C#" scheme="https://miss698.com/categories/C/"/>
+    
+    
+    <category term="C#" scheme="https://miss698.com/tags/C/"/>
+    
+    <category term="后端" scheme="https://miss698.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="跨域" scheme="https://miss698.com/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>测试文章</title>
